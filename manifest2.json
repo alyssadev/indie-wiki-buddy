@@ -19,7 +19,8 @@
     "https://bw.hamstro.dev/*",
     "https://nerd.whatever.social/*",
     "https://breeze.nohost.network/*",
-    "https://breeze.whateveritworks.org/*"
+    "https://breeze.whateveritworks.org/*",
+    "https://bw.home.aly.pet/*"
   ],
   "icons": {
     "16": "images/logo-16.png",
@@ -69,7 +70,8 @@
         "https://bw.hamstro.dev/*",
         "https://nerd.whatever.social/*",
         "https://breeze.nohost.network/*",
-        "https://breeze.whateveritworks.org/*"
+        "https://breeze.whateveritworks.org/*",
+        "https://bw.home.aly.pet/*"
       ],
       "js": [
         "content-banners.js"
