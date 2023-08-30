@@ -51,7 +51,8 @@ if (chrome.declarativeNetRequest) {
         '*://bw.hamstro.dev/*',
         '*://nerd.whatever.social/*',
         '*://breeze.nohost.network/*',
-        '*://breeze.whateveritworks.org/*'
+        '*://breeze.whateveritworks.org/*',
+        '*://bw.home.aly.pet/*'
       ],
       types: [
         'main_frame'
@@ -131,7 +132,8 @@ function updateDeclarativeRule() {
                 "bw.hamstro.dev",
                 "nerd.whatever.social",
                 "breeze.nohost.network",
-                "breeze.whateveritworks.org"
+                "breeze.whateveritworks.org",
+                "bw.home.aly.pet"
               ],
               "resourceTypes": [
                 "main_frame"
@@ -172,7 +174,7 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
 
   if (url.href.includes('fandom.com/wiki/')) {
     if (!(storage.breezewikiHost ?? null)) {
-      fetch('https://bw.getindie.wiki/instances.json')
+      fetch('https://home.aly.pet/instances.json')
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -186,7 +188,7 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
             ) >= 0
           );
           // Check if BreezeWiki's main site is available
-          let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://breezewiki.com');
+          let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://bw.home.aly.pet');
           if (breezewikiMain.length > 0) {
             chrome.storage.sync.set({ 'breezewikiHost': breezewikiMain[0].instance });
           } else {
@@ -202,7 +204,7 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
           processRedirect(host);
         }).catch((e) => {
           console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
-          chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com'});
+          chrome.storage.sync.set({ 'breezewikiHost': 'https://bw.home.aly.pet'});
         });
     } else {
       processRedirect(storage.breezewikiHost);
