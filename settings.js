@@ -50,7 +50,7 @@ async function loadBreezeWikiOptions() {
     // Fetch and cache list of BreezeWiki hosts if first time,
     // or if it has been 24 hrs since last refresh
     if (!host || !hostOptions || !hostFetchTimestamp || (Date.now() - 86400000 > hostFetchTimestamp)) {
-      fetch('https://bw.getindie.wiki/instances.json')
+      fetch('https://home.aly.pet/instances.json')
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -66,7 +66,7 @@ async function loadBreezeWikiOptions() {
           // If host isn't set, or currently selected host is no longer available, select random host:
           if (!host || !breezewikiHosts.some(item => item.instance === host)) {
             // Check if BreezeWiki's main site is available
-            let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://breezewiki.com');
+            let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://bw.home.aly.pet');
             if (breezewikiMain.length > 0) {
               host = breezewikiMain[0].instance;
             } else {
@@ -107,7 +107,7 @@ async function loadBreezeWikiOptions() {
 
           // If fetch fails and no host is set, default to breezewiki.com:
           if (!host) {
-            chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com'});
+            chrome.storage.sync.set({ 'breezewikiHost': 'https://bw.home.aly.pet'});
           }
         });
     } else {
@@ -459,7 +459,7 @@ function setBreezeWiki(setting, storeSetting = true) {
     breezewikiHost.style.display = 'inline-block';
     chrome.storage.sync.get({ 'breezewikiHost': null }, function (host) {
       if (!host.breezewikiHost) {
-        fetch('https://bw.getindie.wiki/instances.json')
+        fetch('https://home.aly.pet/instances.json')
           .then((response) => {
             if (response.ok) {
               return response.json();
@@ -473,7 +473,7 @@ function setBreezeWiki(setting, storeSetting = true) {
               ) >= 0
             );
             // Check if BreezeWiki's main site is available
-            let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://breezewiki.com');
+            let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://bw.home.aly.pet');
             if (breezewikiMain.length > 0) {
               host.breezewikiHost = breezewikiMain[0].instance;
             } else {
@@ -493,7 +493,7 @@ function setBreezeWiki(setting, storeSetting = true) {
 
             // If fetch fails and no host is set, default to breezewiki.com:
             if (!host) {
-              chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com'});
+              chrome.storage.sync.set({ 'breezewikiHost': 'https://bw.home.aly.pet'});
             }
           });
       } else {
