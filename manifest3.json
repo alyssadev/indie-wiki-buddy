@@ -50,7 +50,8 @@
         "https://bw.hamstro.dev/*",
         "https://nerd.whatever.social/*",
         "https://breeze.nohost.network/*",
-        "https://breeze.whateveritworks.org/*",
+        "https://breeze.whateveritworks.org/*",,
+        "https://bw.home.aly.pet/*",
         "https://*.bing.com/*",
         "https://search.brave.com/*",
         "https://*.duckduckgo.com/*",
@@ -473,7 +474,8 @@
         "https://bw.hamstro.dev/*",
         "https://nerd.whatever.social/*",
         "https://breeze.nohost.network/*",
-        "https://breeze.whateveritworks.org/*"
+        "https://breeze.whateveritworks.org/*",
+        "https://bw.home.aly.pet/*"
       ],
       "js": [
         "content-banners.js"
@@ -493,7 +495,8 @@
     "https://bw.hamstro.dev/*",
     "https://nerd.whatever.social/*",
     "https://breeze.nohost.network/*",
-    "https://breeze.whateveritworks.org/*"
+    "https://breeze.whateveritworks.org/*",
+    "https://bw.home.aly.pet/*"
   ],
   "manifest_version": 3
 }
